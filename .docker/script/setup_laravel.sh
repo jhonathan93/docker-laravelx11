@@ -1,7 +1,6 @@
 #!/bin/bash
 
 . /usr/local/bin/colors.sh
-. /usr/local/bin/signature.sh
 
 function print_message() {
   local color=$1
@@ -38,5 +37,7 @@ chown -R www-data:www-data /var/www/html
 chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 print_message "$GREEN" "Configuração concluída com sucesso!"
+
+. /usr/local/bin/signature.sh
 
 exec "$@"
