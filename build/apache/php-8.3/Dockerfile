@@ -1,4 +1,4 @@
-FROM php:8.3-apache
+FROM php:8.4-apache
 
 # ENV XDEBUG_PORT 9000
 
@@ -72,7 +72,7 @@ RUN docker-php-ext-configure \
 RUN apt-get update && apt-get install -y default-mysql-client
 
 # Instale o Node.js, NVM, NPM e Grunt
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get install -y nodejs
 
 # Instale o OAuth

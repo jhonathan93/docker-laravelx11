@@ -10,8 +10,8 @@ function print_message() {
 
 set -e
 
-print_message "$GREEN" "Instalando o Laravel versão 11..."
-composer create-project laravel/laravel=11.* . --prefer-dist
+print_message "$GREEN" "Instalando o Laravel versão 12..."
+composer create-project laravel/laravel=12.* . --prefer-dist
 
 print_message "$GREEN" "Copiando o arquivo .env para o diretório do Laravel..."
 cp /usr/local/bin/.env /var/www/html/.env
