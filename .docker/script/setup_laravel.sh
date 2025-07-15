@@ -18,6 +18,8 @@ cp /usr/local/bin/.env /var/www/html/.env
 
 print_message "$GREEN" "Instalando as dependências do Composer..."
 composer install --no-dev --optimize-autoloader
+composer require aws/aws-sdk-php
+composer require league/flysystem-aws-s3-v3
 
 print_message "$GREEN" "Gerando chave de aplicativo..."
 php artisan key:generate

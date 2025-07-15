@@ -11,6 +11,7 @@ services:
         - GID=${GID:-1000}
     ports:
       - "80:80"
+      - "5173:5173"
     volumes:
       - ./src:/var/www/html
       - ./.docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
@@ -43,3 +44,26 @@ services:
       - "8025:8025"
     networks:
       - laravel
+
+  minio:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+      MINIO_BROWSER_REDIRECT_URL: http://localhost:9001
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      - laravel
+
+volumes:
+  minio_data:
