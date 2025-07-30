@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     libxslt1-dev \
     libzip-dev \
     lsof \
+    imagick \
     mailutils \
     msmtp \
     procps \
@@ -54,6 +55,7 @@ RUN docker-php-ext-configure \
     gd \
     gettext \
     intl \
+    imagick \
     mbstring \
     mysqli \
     opcache \
