@@ -1,14 +1,14 @@
 #!/bin/bash
 
-. /usr/local/bin/colors.sh
+. /usr/local/bin/core.sh
 . /usr/local/bin/signature.sh
 
 if [ ! -f artisan ]; then
-  echo -e "${RED}Erro: Este script deve ser executado no diretório raiz do Laravel (onde o arquivo artisan está localizado).${RESET}"
+  print_message "$RED" "${EMOJI_FAIL} Erro: Este script deve ser executado no diretório raiz do Laravel (onde o arquivo artisan está localizado)."
   exit 1
 fi
 
-echo -e  "${GREEN}Limpando todos os caches do Laravel...${RESET}"
+print_message "$GREEN" "${EMOJI_HOURGLASS} Limpando todos os caches do Laravel..."
 
 php artisan cache:clear
 php artisan config:clear
@@ -16,14 +16,14 @@ php artisan route:clear
 php artisan view:clear
 php artisan event:clear
 
-echo -e "${GREEN}Otimizando novamente as configurações...${RESET}"
+print_message "$GREEN" "${EMOJI_HOURGLASS} Otimizando novamente as configurações..."
 
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-echo -e "${GREEN}Executando composer dump-autoload...${RESET}"
+print_message "$GREEN" "${EMOJI_HOURGLASS} Executando composer dump-autoload..."
 composer dump-autoload
 
-echo -e "${GREEN}Processo concluído com sucesso!${RESET}"
+print_message "$GREEN" "${EMOJI_OK} Processo concluído com sucesso!"
 exit 0

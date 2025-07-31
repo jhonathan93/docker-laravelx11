@@ -20,5 +20,16 @@ colors=(
 random_index=$(( RANDOM % ${#colors[@]} ))
 selected_color="${colors[random_index]}"
 
-RIGHT_ARROW='\u27A1'
-WHITE_CHECK='\u2705'
+EMOJI_SEARCH="🔎 "
+EMOJI_CHECK="🔧 "
+EMOJI_OK="✅ "
+EMOJI_FAIL="🚨 "
+EMOJI_ARROW="➡️ "
+EMOJI_HOURGLASS="⌛️ "
+EMOJI_WARNING="⚠️ "
+
+function print_message() {
+  local color=$1
+  local message=$2
+  echo -e "\n${color}${message}${RESET}\n"
+}
