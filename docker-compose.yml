@@ -12,6 +12,7 @@ services:
     dns:
       - 8.8.8.8
       - 1.1.1.1
+    dns_search: .
     ports:
       - "80:80"
       - "5173:5173"
@@ -19,7 +20,7 @@ services:
       - ./src:/var/www/html
       - ~/.composer/cache:/var/www/.composer/cache
       - ~/.npm:/var/www/.npm
-      - ~/.ssh/id_ed25519:/root/.ssh/id_ed25519:ro
+      - ~/.ssh/id_ed25519_github:/root/.ssh/id_ed25519:ro
     depends_on:
       - mysql
       - mailhog

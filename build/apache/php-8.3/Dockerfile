@@ -73,6 +73,9 @@ RUN apt-get update \
     libpcre3 \
     libpcre3-dev
 
+# Instala o Xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 ADD /.docker/config/php.ini /usr/local/etc/php/php.ini
