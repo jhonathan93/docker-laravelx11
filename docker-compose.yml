@@ -16,6 +16,9 @@ services:
     ports:
       - "80:80"
       - "5173:5173"
+    environment:
+      - XDEBUG_MODE=off
+      - XDEBUG_START_WITH_REQUEST=no
     volumes:
       - ./src:/var/www/html
       - ~/.composer/cache:/var/www/.composer/cache
