@@ -68,10 +68,9 @@ RUN apt-get update && apt-get install -y default-mysql-client
 RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get install -y nodejs
 
-RUN apt-get update \
-    && apt-get install -y \
-    libpcre3 \
-    libpcre3-dev
+RUN apt-get update && apt-get install -y \
+    libpcre2-8-0 \
+    libpcre2-dev
 
 # Instala o Xdebug
 RUN pecl install xdebug && docker-php-ext-enable xdebug
