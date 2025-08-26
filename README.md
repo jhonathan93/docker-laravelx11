@@ -1,4 +1,7 @@
 # docker-compose-laravel
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c2e4db4c19d4ae2a73f9545e27097bc)](https://app.codacy.com/gh/jhonathan93/docker-laravel?utm_source=github.com&utm_medium=referral&utm_content=jhonathan93/docker-laravel&utm_campaign=Badge_Grade)
+
 A pretty simplified Docker Compose workflow that sets up a LEMP network of containers for local Laravel development. You can view the full article that inspired this repo [here](https://dev.to/aschmelyun/the-beauty-of-docker-for-local-laravel-development-13c0).
 
 ## Usage
