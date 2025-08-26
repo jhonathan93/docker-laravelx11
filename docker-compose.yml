@@ -13,6 +13,8 @@ services:
       - 8.8.8.8
       - 1.1.1.1
     dns_search: .
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "80:80"
       - "5173:5173"
