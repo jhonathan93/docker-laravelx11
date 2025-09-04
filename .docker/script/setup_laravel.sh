@@ -3,24 +3,6 @@
 # shellcheck disable=SC2162
 . /usr/local/bin/core.sh
 
-function install_phpcs() {
-  print_message "$GREEN" "${EMOJI_ARROW} Instalando PHP_CodeSniffer globalmente..."
-
-  echo "nameserver 8.8.8.8" > /etc/resolv.conf || true
-
-  composer global require "squizlabs/php_codesniffer=*" --timeout=300
-
-  export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-  print_message "$GREEN" "${EMOJI_OK} PHP_CodeSniffer instalado com sucesso!"
-}
-
-read -r -p "$(echo -e "\n${GREEN}${EMOJI_ARROW} Deseja instalar o PHP_CodeSniffer globalmente? [s/N]: ${RESET}")" INSTALL_PHPCS
-if [[ "${INSTALL_PHPCS,,}" == "s" || "${INSTALL_PHPCS,,}" == "sim" ]]; then
-  install_phpcs
-else
-  print_message "$YELLOW" "${EMOJI_WARNING} Pulando instalação do PHP_CodeSniffer..."
-fi
-
 function install_new_laravel() {
   print_message "$GREEN" "${EMOJI_ARROW} Instalando o Laravel versão 12..."
   composer create-project laravel/laravel=12.* . --prefer-dist
